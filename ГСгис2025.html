@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карты ЛВПЦ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: white;
+            
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 0 0 100px 100px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: -50px auto 30px;
+            padding: 30px;
+            background-color: white;
+        
+            border-radius: 15px;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+       
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header-image {
+                height: 200px;
+                border-radius: 0;
+            }
+            
+            .container {
+                margin-top: -30px;
+                padding: 20px;
+                border-radius: 10px 10px 0 0;
+            }
+        }
+        .image-block {
+    width: 100%;
+    height: 740px;
+    margin: 0 auto;
+    border-radius: 0px 0px 80px 80px;
+    background-image: "";
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 3px solid transparent;
+        }
+        
+        .main-button {
+            width: 120px;
+            height: 35px;
+            background-color: transparent;
+        
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin: 5px 0;
+            outline: none;
+        }
+        
+        .main-button:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .hidden-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .hidden-button {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .hidden-buttons.visible {
+            max-height: 500px; 
+        }
+        
+        .hidden-buttons.visible .hidden-button {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: calc(var(--i) * 0.1s); 
+        }
+
+
+        
+
+
+
+
+
+
+        /*оисковик*/
+        .search-container {
+            width: 100%;
+            max-width: 200px;
+            padding: 20px;
+            height: 80px;
+        }
+        
+        .search-box {
+            position: relative;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            height: 5px;
+        }
+        
+        .search-box:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .search-box.focused {
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+        
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px 10px 45px;
+            margin-top: -20px;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 20px;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 0px 8px 8px 0px;
+            cursor: pointer;
+            font-weight: 450;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(9px);
+            height: 35px;
+        }
+        
+        .search-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+
+
+
+        /* Список улусов*/
+        .lvpc-container {
+            font-family: Arial, sans-serif;
+            max-width: 300px;
+            border: 0px solid #ddd;
+            padding: 15px;
+            background-color: #0485A2;
+            line-height: 1.4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            color:white;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-subtitle {
+            font-weight: normal;
+            font-size: 0.9em;
+        }
+        .region-list {
+            margin: 10px 0;
+            padding-left: 20px;
+            list-style-type: none;
+            display: block;
+            
+        }
+        .region-list li {
+            padding: 3px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .region-list li:hover {
+            color: #1A00FF;
+            transform: translateX(5px);
+        }
+        .section {
+            margin: 15px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        .section:hover {
+            background-color: #eee;
+            color: black;
+        }
+        .quote {
+            font-style: italic;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 3px solid #2a5885;
+            color: black;
+        }
+        .user-count {
+            margin-top: 20px;
+            font-size: 0.9em;
+            padding: 8px;
+            background-color: #e1e5eb;
+            border-radius: 4px;
+            color:black;
+        }
+        .windows-activate {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #666;
+            text-align: center;
+            padding: 5px;
+            border-top: 1px dashed #ccc;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .collapsed {
+            display: none;
+        }
+        .active-region {
+            font-weight: bold;
+            color: #2a5885;
+            background-color: #e1e5eb;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color:black;
+        }
+
+
+
+
+
+
+        /*Подвалсайта*/
+        footer {
+    background-color: #0485A2;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    border-radius: 80px 80px 0px 0px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin: 10px 20px;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: wheat;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    font-size: 12px;
+}
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+      <div class="image-block" style="background-image: url('i.webp'); " >
+        
+          
+        <h1 style="display: flex;">
+         <div class="button-container" style="margin-left: 250px;">
+            <button class="main-button" id="mainButton">Затопление</button>
+            <div class="hidden-buttons" id="hiddenButtons">
+              
+                <button class="main-button hidden-button">Информация</button>
+                <button class="main-button hidden-button">Статьи</button>
+                <button class="main-button hidden-button">Карты</button>
+               
+            </div>
+          </div>
+            
+    
+           <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mainButton = document.getElementById('mainButton');
+                const hiddenButtons = document.getElementById('hiddenButtons');
+                const hiddenButtonElements = document.querySelectorAll('.hidden-button');
+                
+             
+                hiddenButtonElements.forEach((button, index) => {
+                    button.style.setProperty('--i', index);
+                });
+                
+                mainButton.addEventListener('click', function() {
+                    
+                    hiddenButtons.classList.toggle('visible');
+                    
+                    
+                    if (hiddenButtons.classList.contains('visible')) {
+                        mainButton.textContent = 'Затопление';
+                    } else {
+                        mainButton.textContent = 'Затопление';
+                    }
+                });
+            });
+          </script>
+          <div class="button-container" style="margin-left: 50px;">
+          <button class="main-button" id="mainButton">Документы</button>
+          <div class="hidden-buttons" id="hiddenButtons">
+            
+            <button class="main-button hidden-button">Кнопка 1</button>
+            <button class="main-button hidden-button">Кнопка 2</button>
+            <button class="main-button hidden-button">Кнопка 3</button>
+            <button class="main-button hidden-button">Кнопка 4</button>
+          </div>
+          </div>
+
+         <div class="button-container" style="margin-left: 50px;">
+            <button class="main-button" id="mainButton">Инструменты</button>
+            <div class="hidden-buttons" id="hiddenButtons">
+                
+                <button class="main-button hidden-button">Кнопка 1</button>
+                <button class="main-button hidden-button">Кнопка 2</button>
+                <button class="main-button hidden-button">Кнопка 3</button>
+                <button class="main-button hidden-button">Кнопка 4</button>
+            </div>
+          </div>
+           <div class="button-container" style="margin-left: 50px;">
+            <button class="main-button" id="mainButton">О сайте</button>
+            <div class="hidden-buttons" id="hiddenButtons">
+               
+                <button class="main-button hidden-button">Кнопка 1</button>
+                <button class="main-button hidden-button">Кнопка 2</button>
+                <button class="main-button hidden-button">Кнопка 3</button>
+                <button class="main-button hidden-button">Кнопка 4</button>
+            </div>
+          </div>
+    
+
+
+
+         <div class="button-container" style="margin-left: 50px;">
+            <button class="main-button" id="redirectButton" >Карты</button>
+            <script>
+                document.getElementById("redirectButton").addEventListener("click", function() {
+                  window.location.href = "2strgis.html";
+                });
+              </script>
+            <div class="hidden-buttons" id="hiddenButtons">
+             
+                <button class="main-button hidden-button">Кнопка 1</button>
+                <button class="main-button hidden-button">Кнопка 2</button>
+                <button class="main-button hidden-button">Кнопка 3</button>
+                <button class="main-button hidden-button">Кнопка 4</button>
+            </div>
+           
+        </h1>
+        <hr style="margin-left: 250px;margin-top: -35px;">
+        
+        
+        
+        
+        
+        
+        
+        <div style="display: flex;">
+            <div class="search-container" style="margin-left: 70%;">
+                <div class="search-box" id="searchBox">
+                    <div class="search-icon"></div>
+                    <input type="text" class="search-input" placeholder="Поиск..." id="searchInput">
+                   
+                </div>
+            </div>
+        
+            <script>
+                const searchInput = document.getElementById('searchInput');
+                const searchBox = document.getElementById('searchBox');
+                
+                searchInput.addEventListener('focus', () => {
+                    searchBox.classList.add('focused');
+                });
+                
+                searchInput.addEventListener('blur', () => {
+                    searchBox.classList.remove('focused');
+                });
+                
+                document.getElementById('searchButton').addEventListener('click', () => {
+                    const query = searchInput.value.trim();
+                    if(query) {
+                        alert(`Вы искали: ${query}`);
+                       
+                    }
+                });
+                
+                searchInput.addEventListener('keypress', (e) => {
+                    if(e.key === 'Enter') {
+                        document.getElementById('searchButton').click();
+                    }
+                });
+            </script>
+            <div class="button-container" style="margin-left: 50px;margin-top: 12px;">
+                <button class="main-button" id="mainButton">Войти</button>
+                
+              </div>
+
+
+              
+                
+
+        </div>
+        <h1 style="text-align: center;font-size: 40px;color:white">Сайт посвящён картам<br>
+            затопления на территории Якутии </h1>
+            <p style="text-align: center;font-size: 25px;">Здесь вы найдёте: актуальные данные о затоплении, его прогнозы</p>
+            <p style="text-align: center;font-size: 25px;margin-top: -30px;">методики обеспечения безопасности,</p>
+            <p style="text-align: center;font-size: 25px;margin-top: -30px;"> а также обсуждение вопросов, связанных с затоплением</p>
+            <button style="border-radius: 10px;background-color: #0485A2; color:white; text-align: center; width: 200px;height: 50px; margin-left: 45%;"><strong>Узнать подробнее</strong></button>
+
+
+
+
+           
+            
+            
+            
+            
+          
+
+        
+        
+
+
+     
+        
+
+
+     
+
+       
+
+
+
+    </header>
+
+
+
+
+    <div style="text-align: center;font-size: 40px;margin-top: 100px;">Информация по улусам</div>
+    <div style="text-align: center;font-size: 20px;">(Отображаются только те улусы , где могут быть наводнения)</div>
+    <div class="lvpc-container" style="margin-left: 20%;margin-top: 100px;">
+        <div class="section-title" onclick="toggleSection('regions')">
+            Географические группы
+            <span class="arrow">▼</span>
+        </div>
+        <div class="section-subtitle">(улусы, которые находятся в определенной части Якутии)</div>
+        
+        <ul id="regions" class="region-list" style="list-style-type: none;">
+            <li onclick="selectRegion(this)" style="list-style-type: none;">   Алданский улус</li>
+            <li onclick="selectRegion(this)">   Усть-Алданский улус</li>
+            <li onclick="selectRegion(this)">Томпонский</li>
+            <li onclick="selectRegion(this)">Усть-Майский улус</li>
+            <li onclick="selectRegion(this)">Верхнеколымский улус</li>
+            <li onclick="selectRegion(this)">Средне колымский улус</li>
+            <li onclick="selectRegion(this)">Нижнеколымский улус </li>
+            <li onclick="selectRegion(this)">Ленский улус</li>
+            <li onclick="selectRegion(this)">намский улус</li>
+            <li onclick="selectRegion(this)">Олекминский улус</li>
+            <li onclick="selectRegion(this)">Хангаласский улус</li>
+            <li onclick="selectRegion(this)">Кобяйский улус</li>
+            <li onclick="selectRegion(this)">Верхоянский улус</li>
+            <li onclick="selectRegion(this)">Амгинский улус</li>
+            <li onclick="selectRegion(this)">Оймяконский улус</li>
+            <li onclick="selectRegion(this)">Мегино-Хангаласский улус</li>
+            <li onclick="selectRegion(this)">г. Якутск</li>
+            <li onclick="selectRegion(this)">таттинский улус</li>
+            <li onclick="selectRegion(this)">Чурапчинский улус</li>
+            <li onclick="selectRegion(this)">Усть-Янский улус</li>
+            <li onclick="selectRegion(this)">Момский улус</li>
+            <li onclick="selectRegion(this)">Абыйский улус</li>
+            <li onclick="selectRegion(this)">Горный улус</li>
+
+        </ul>
+        
+        
+        <div class="quote" onclick="showStones()">
+            «Водлинские камни»
+        </div>
+        
+        <div class="user-count" id="userCounter">
+            сейчас на сайте<br>
+            <strong>Пользователей Winddiv: 1</strong>
+        </div>
+        
+       
+    </div>
+
+    <script>
+     
+        let selectedRegion = null;
+        
+        
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const arrow = document.querySelector(`.section-title[onclick="toggleSection('${sectionId}')"] .arrow`);
+            
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                arrow.textContent = '▼';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                section.style.display = 'none';
+                arrow.textContent = '▶';
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        }
+        
+     
+        function selectRegion(element) {
+            if (selectedRegion) {
+                selectedRegion.classList.remove('active-region');
+            }
+            selectedRegion = element;
+            element.classList.add('active-region');
+            
+           
+            console.log('Выбран регион:', element.textContent);
+        }
+        
+        // Показать карту
+       
+        
+       
+       
+        
+       
+        function updateUserCount() {
+            const countElement = document.querySelector('#userCounter strong');
+      
+            const randomCount = Math.floor(Math.random() * 5) + 1;
+            countElement.textContent = `Пользователей Winddiv: ${randomCount}`;
+        }
+        
+       
+        setInterval(updateUserCount, 10000);
+    </script>
+    <img src="https://avatars.mds.yandex.net/i?id=82e4d68cccb0b492023d1e653dc05a8c08a7c23e-4430187-images-thumbs&n=13" width="500px" height="500px" style="margin-left: 50%;margin-top: -300px;">
+
+    
+   
+    
+     
+        
+       
+
+
+
+
+
+
+
+
+        
+       
+    </div>
+
+
+    <div>
+    
+
+
+
+     <section style="background-color: #0485A2;display: flex;margin-top: 150px;">
+          <h1 style="color: white; text-align: center; font-size: 40px;margin-left: 43%;margin-top: 90px;">Новости сайта</h1>
+
+        
+         <div style="margin-left:-45%;">
+            <button style="width: 250px;height: 250px;background-color: white; border-radius: 35px;margin-top: 300px;margin-bottom: 150px;border-color: white;"><p style="color: #009DFF;text-align: center;font-size: 35px;">5 апр 2025</p>
+            <p style="color: #2a5885;text-align: center;font-size: 25px;">Обновление</p></button>
+            <button style="width: 250px;height: 250px;background-color: white; border-radius: 35px;margin-top: 300px;margin-bottom: 150px;margin-left: 30px;border-color: white;"><p style="color: #009DFF;text-align: center;font-size: 35px;">5 апр 2025</p>
+                <p style="color: #2a5885;text-align: center;font-size: 25px;">Обновление</p></button>
+                <button style="width: 250px;height: 250px;background-color: white; border-radius: 35px;margin-top: 300px;margin-bottom: 150px;margin-left: 30px;border-color: white;"><p style="color: #009DFF;text-align: center;font-size: 35px;">5 апр 2025</p>
+                    <p style="color: #2a5885;text-align: center;font-size: 25px;">Обновление</p></button>
+                    <button style="width: 250px;height: 250px;background-color: white; border-radius: 35px;margin-top: 300px;margin-bottom: 150px;margin-left: 30px;border-color: white;"><p style="color: #009DFF;text-align: center;font-size: 35px;">5 апр 2025</p>
+                        <p style="color: #2a5885;text-align: center;font-size: 25px;">Обновление</p></button>
+                        <button style="width: 250px;height: 250px;background-color:  white; border-radius: 35px;margin-top: 300px;margin-bottom: 150px;margin-left: 30px;border-color: white;"><p style="color: #009DFF;text-align: center;font-size: 35px;">5 апр 2025</p>
+                            <p style="color: #2a5885;text-align: center;font-size: 25px;">Обновление</p></button>
+            
+
+
+         </div>
+        
+
+
+
+     </section>
+     </div>
+     <h1 style="text-align: center;font-size: 40px;margin-top: 100px;">Карта Республики Саха (Якутия)</h1>
+     <hr>
+
+
+     <div style="margin-left: 450px;border-radius: 10px;">
+       
+        
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11546778.650670085!2d114.90456447857356!3d64.90085426467706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5beb1a032f51336b%3A0x32e00a48a227d58e!2z0KDQtdGB0L8uINCh0LDRhdCwICjQr9C60YPRgtC40Y8p!5e0!3m2!1sru!2sru!4v1743821002482!5m2!1sru!2sru" width="950" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        
+     
+
+
+    
+    
+        <footer style="margin-top: 150px;">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Якутия</h3>
+                    <ul>
+                        <li><a href="#">Про Затопления</a></li>
+                        <li><a href="#">Заинтересованные стороны</a></li>
+                        <li><a href="#">Позиции компании</a></li>
+                        <li><a href="#">Публикации про наводнения</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Карты</h3>
+                    <ul>
+                        <li><a href="#">Наводнения Якутии</a></li>
+                        <li><a href="#">Карты по улусам</a></li>
+                        <li><a href="#">Инструкция по использованию карт</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Документы</h3>
+                    <ul>
+                        <li><a href="#">Документы паводков</a></li>
+                        <li><a href="#">Документы прикольные</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Инструменты</h3>
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">О</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>О сайте</h3>
+                    <ul>
+                        <li><a href="#">О сайте</a></li>
+                        <li><a href="#">Новости сайта</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Опрос</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+             
+            </div>
+        </footer>
+    
+   
+</body>
+</html>
