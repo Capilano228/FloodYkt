@@ -1,0 +1,768 @@
+<style>.header-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0 0 100px 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 100%;
+    margin: -50px auto 30px;
+    padding: 30px;
+    background-color: white;
+
+    border-radius: 15px;
+    position: relative;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+li:before {
+    content: "•";
+    
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .header-image {
+        height: 200px;
+        border-radius: 0;
+    }
+    
+    .container {
+        margin-top: -30px;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+}
+.image-block {
+width: 100%;
+height: 300px;
+margin: 0 auto;
+border-radius: 0px 0px 80px 80px;
+background-image: "";
+background-size: cover;
+background-position: center;
+position: relative;
+color: white;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid transparent;
+}
+
+.main-button {
+    width: 120px;
+    height: 35px;
+    background-color: transparent;
+
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+    outline: none;
+}
+
+.main-button:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.hidden-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+}
+
+.hidden-button {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden-buttons.visible {
+    max-height: 500px;
+}
+
+.hidden-buttons.visible .hidden-button {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i) * 0.1s); 
+}
+
+
+
+
+
+
+
+
+
+/*оисковик*/
+.search-container {
+    width: 100%;
+    max-width: 200px;
+    padding: 20px;
+    height: 80px;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 5px;
+}
+
+.search-box:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.search-box.focused {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px 10px 45px;
+    margin-top: -20px;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    
+}
+
+.search-icon {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 20px;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+    font-weight: 450;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(9px);
+    height: 35px;
+}
+
+.search-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/*гОВНО228*/
+.regional-section {
+    font-family: Arial, sans-serif;
+    max-width: 280px;
+    margin: 20px;
+    padding: 15px;
+    background-color: #0485A2;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 1150px;
+    margin-top: -200px;
+}
+
+.regional-section h3 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.region-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.region-list li {
+    margin-bottom: 8px;
+}
+
+.region-list li a {
+    color: white; 
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.region-list li a:hover {
+    text-decoration: underline;
+}
+
+.map-section, .photos-section {
+    margin: 15px 0;
+    border-radius: 30px;
+}
+
+.photos-section h3 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.photo-item {
+    margin-bottom: 10px;
+}
+
+.photo-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.current-status {
+    color: white;
+    font-style: italic;
+}
+
+.online-users {
+    font-size: 14px;
+    color: white;
+    margin-top: 15px;
+    text-align: right;
+}
+
+
+
+
+/*Мини слайд шоу*/
+.slideshow {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            overflow: hidden;
+            margin-left: -5px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 200px;
+            height: 200px;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+
+
+        /*подвал*/
+          /*Подвалсайта*/
+          footer {
+    background-color: #0485A2;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    border-radius: 80px 80px 0px 0px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin: 10px 20px;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: wheat;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+</style>
+
+
+<body><header>
+    <div class="image-block" style="background-image: url('уу.jpg'); " >
+     
+       
+        <h1 style="display: flex;">
+      <div class="button-container" style="margin-left: 250px;">
+         <button class="main-button" id="mainButton">наводнение</button>
+         <div class="hidden-buttons" id="hiddenButtons">
+           
+             <button class="main-button hidden-button">Кнопка 1</button>
+             <button class="main-button hidden-button">Кнопка 2</button>
+             <button class="main-button hidden-button">Кнопка 3</button>
+             <button class="main-button hidden-button">Кнопка 4</button>
+         </div>
+       </div>
+         
+ 
+        <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             const mainButton = document.getElementById('mainButton');
+             const hiddenButtons = document.getElementById('hiddenButtons');
+             const hiddenButtonElements = document.querySelectorAll('.hidden-button');
+             
+            
+             hiddenButtonElements.forEach((button, index) => {
+                 button.style.setProperty('--i', index);
+             });
+             
+             mainButton.addEventListener('click', function() {
+                
+                 hiddenButtons.classList.toggle('visible');
+                
+                 if (hiddenButtons.classList.contains('visible')) {
+                     mainButton.textContent = 'Наводнение';
+                 } else {
+                     mainButton.textContent = 'Наводнение';
+                 }
+             });
+         });
+       </script>
+       <div class="button-container" style="margin-left: 50px;">
+       <button class="main-button" id="mainButton">Документы</button>
+       <div class="hidden-buttons" id="hiddenButtons">
+         
+         <button class="main-button hidden-button">Кнопка 1</button>
+         <button class="main-button hidden-button">Кнопка 2</button>
+         <button class="main-button hidden-button">Кнопка 3</button>
+         <button class="main-button hidden-button">Кнопка 4</button>
+       </div>
+       </div>
+
+      <div class="button-container" style="margin-left: 50px;">
+         <button class="main-button" id="mainButton">Инструменты</button>
+         <div class="hidden-buttons" id="hiddenButtons">
+            
+             <button class="main-button hidden-button">Кнопка 1</button>
+             <button class="main-button hidden-button">Кнопка 2</button>
+             <button class="main-button hidden-button">Кнопка 3</button>
+             <button class="main-button hidden-button">Кнопка 4</button>
+         </div>
+       </div>
+        <div class="button-container" style="margin-left: 50px;">
+         <button class="main-button" id="mainButton">О сайте</button>
+         <div class="hidden-buttons" id="hiddenButtons">
+            
+             <button class="main-button hidden-button">Кнопка 1</button>
+             <button class="main-button hidden-button">Кнопка 2</button>
+             <button class="main-button hidden-button">Кнопка 3</button>
+             <button class="main-button hidden-button">Кнопка 4</button>
+         </div>
+       </div>
+ 
+
+
+
+      <div class="button-container" style="margin-left: 50px;">
+         <button class="main-button" id="redirectButton">Карты</button>
+         <script>
+            document.getElementById("redirectButton").addEventListener("click", function() {
+              window.location.href = "2strgis.html";
+            });
+          </script>
+         <div class="hidden-buttons" id="hiddenButtons">
+           
+             <button class="main-button hidden-button">Кнопка 1</button>
+             <button class="main-button hidden-button">Кнопка 2</button>
+             <button class="main-button hidden-button">Кнопка 3</button>
+             <button class="main-button hidden-button">Кнопка 4</button>
+         </div>
+        
+     </h1>
+     <hr style="margin-left: 250px;margin-top: -35px;">
+     
+     
+     
+     
+     
+     
+     
+     <div style="display: flex;">
+         <div class="search-container" style="margin-left: 70%;">
+             <div class="search-box" id="searchBox">
+                 <div class="search-icon"></div>
+                 <input type="text" class="search-input" placeholder="Поиск..." id="searchInput">
+                
+             </div>
+         </div>
+     
+         <script>
+             const searchInput = document.getElementById('searchInput');
+             const searchBox = document.getElementById('searchBox');
+             
+             searchInput.addEventListener('focus', () => {
+                 searchBox.classList.add('focused');
+             });
+             
+             searchInput.addEventListener('blur', () => {
+                 searchBox.classList.remove('focused');
+             });
+             
+             document.getElementById('searchButton').addEventListener('click', () => {
+                 const query = searchInput.value.trim();
+                 if(query) {
+                     alert(`Вы искали: ${query}`);
+                 
+                 }
+             });
+             
+             searchInput.addEventListener('keypress', (e) => {
+                 if(e.key === 'Enter') {
+                     document.getElementById('searchButton').click();
+                 }
+             });
+         </script>
+         <div class="button-container" style="margin-left: 50px;margin-top: 12px;">
+             <button class="main-button" id="mainButton">Войти</button>
+             
+           </div>
+
+       
+
+
+
+           
+             
+
+     </div>
+     <div style="font-size: 46px;text-align: center;">Концепсия наводнений</div>
+   </header>
+
+
+
+   <div style="margin-left: 20%;font-size: 18px;margin-top: 100px;">  <pre>Понятие и классификация наводнений
+
+    Наводнение – это значительное затопление водой местности в результате
+    подъема уровня воды в реке, водохранилище, озере или море, вызванное 
+    обильным притоком воды в период снеготаяния или ливней, ветровых нагонов
+    воды, а также при заторах, зажорах и иных явлениях. 
+    
+    По повторяемости, площади распространения и суммарному среднегодовому материальному 
+    ущербу   наводнения на территории Российской Федерации занимают первое место 
+    в ряду стихийных бедствий,а по количеству человеческих жертв и удельному 
+    материальному ущербу (приходящемуся на единицу поражённой площади) – второе 
+    место после землетрясений.
+    
+    Реки отличаются друг от друга различными условиями формирования стока воды 
+    (сток воды – количество воды, протекающей через замыкающий створ реки, за 
+    какой-либо интервал времени).
+    
+    По условиям формирования стока и возникновения наводнений реки Российской Федерации
+    подразделяются на четыре типа: 
+    
+    Реки с максимальным стоком от таянья снега на равнинах. Для таких рек причиной 
+    или источником наводнений является сезонное таянье снежного покрова, к этому типу 
+    относится большинство рек европейской части России и Западной Сибири.
+    
+    Реки с максимальным стоком от таянья горных снегов и ледников. Условиями 
+    формирования наводнений для таких рекявляется интенсивное таянье ледников и снегов, 
+    расположенных высоко в горах, которое может наблюдаться несколько
+    раз в течении года. К этому типу относятся реки Закавказья и Северного Кавказа.
+    
+    Реки с максимальным стоком, обусловленным выпадением интенсивных осадков в виде
+    дождей. Для рек такого типа характерно наличие нескольких пиков стока воды в 
+    течение года. К этому типу относятся реки Дальнего Востока и Восточной Сибири.
+    
+    Реки с максимальными стоками, образующимися от совместного влияния снеготаяния
+    и осадков. Режим этих рек  характеризуется весенним половодьем от таяния снегов, 
+    повышением летнего и зимнего стока за счет обильного грунтового питания, а 
+    также значительными осенними осадками. Наличие такого типа рек характерно для 
+    северо-западных районов страны и некоторых районов Кавказа. 
+    
+    Наиболее значительные наводнения наблюдаются на реках дождевого и ледникового 
+    питания, а особенно опасные – при сочетании этих двух факторов. 
+    
+    Классификация наводнений по причинам возникновении 
+    В зависимости от причин возникновения различают шесть основных типов наводнений:
+    Половодье – периодически повторяющейся подъем уровня воды в реках, вызываемый обычно
+    весенним таянием снега или обильными дождями на равнинных реках, а также весенне-летним 
+    таянием снега и ледников на реках, берущих начало в горных районах. Половодья 
+    повторяются ежегодно в один и тот же сезон с различной интенсивностью 
+    и продолжительностью, в зависимости от метеорологических условий.
+    
+    Паводок — интенсивный периодический и достаточно кратковременный подъем уровня воды в реке
+    , вызываемый сильными дождевыми осадками, а нередко и быстрым таянием снега при зимних
+    оттепелях. В отличие от половодий, паводок случаетсяв любое время года. При частом 
+    выпадении дождей отдельные наводки накладываются один на другой, формируя сложный
+    многопиковый паводок продолжительностью до нескольких месяцев. Значительный паводок может
+    вызвать наводнение, называемое паводковым наводнением. Паводки могут повторяться 
+    несколько раз в году.
+    Особую угрозу представляют так называемые внезапные паводки, связанные с кратковременными, 
+    но очень интенсивными ливнями, которые случаются и зимой из-за оттепелей.
+    
+    Затор — нагромождение льдин во время весеннего ледохода в сужениях и излучинах русла реки,
+    стесняющее течение и вызывающее на некоторых участках выше него подъем уровня воды. 
+    Образование заторов происходит следующим образом: течение реки несет оттаявшие массы льда 
+    снега, которые сталкиваются в северной части реки с еще прочным нерастаявшим льдом. Поэтому 
+    образование заторов характерно для рек, текущих с юга на север. Наводнения, 
+    вызванные заторами, обычно происходят в конце зимы — начале весны.
+    
+    Зажор — скопление рыхлого ледового материала во время замерзания в сужениях и 
+    излучинах реки, вызывающее подъем уровня воды на некоторых участках выше ее русла. 
+    Наводнения из-за зажоров возникают обычно в начале зимы.
+    
+    Ветровой нагон — подъем уровня воды, вызванный воздействием ветра на водную поверхность, 
+    происходящий обычнов устьях крупных рек, а также на наветренном берегу больших озер, 
+    водохранилищ и морей. Ветровые нагоны возможныв любое время года, характеризуются отсутствием
+    периодичности и значительным подъемом уровня воды. Ярким примером ветрового нагона являются
+    регулярные наводнения в Санкт-Петербурге. Одно из наиболее разрушительных из них произошло 
+    в 1824 году. Часто подъем воды при ветровом нагоне сочетается с прорывом дамб и плотин.
+    
+    Наводнения при прорывах плотин — это интенсивный, значительный подъем воды в реке, 
+    вызванный прорывом плотины,дамбы или естественной природной преграды в результате оползней,
+    обвалов горных пород, движения ледников. Такиенаводнения случаются значительно реже, 
+    чем наводнения других описанных типов, и только в горных районах. Сравнительно редко 
+    происходят наводнения, вызванные подводными землетрясениями, извержениями вулканов. 
+    Они наблюдаются в районах активной сейсмической деятельности. В пределах России преобладают 
+    аводнения, вызванные половодьем или паводками(около 70-80% всех случаев). Они происходят 
+    на равнинных и горных реках в северных и южных районах страны
+        , а также на Дальнем Востоке. </pre></div>
+    
+    
+    
+    
+    <div class="regional-section" style="margin-left: 1280px;margin-top: -1800px;" >
+        <h3>Географические разделы</h3>
+        <ul class="region-list">
+            <li><a href="#">Северо-Восточная группа</a></li>
+            <li><a href="#">Северо-Западная группа</a></li>
+            <li><a href="#">Центральная группа</a></li>
+            
+        </ul>
+    
+        <div class="map-section">
+            <h3>Карта наводнения Якутии</h3>
+            <img  src="ра.PNG" width="200px" height="200px" href="https://hcvf.ru/ru/maps/hcvf-sakha">
+        </div>
+    
+        <div class="photos-section">
+            <h3>Фотографии</h3>
+            <div class="slideshow">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://avatars.mds.yandex.net/i?id=175691ede9814f0538c0a00f8165dff2b592b207-5244793-images-thumbs&n=13" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://avatars.mds.yandex.net/i?id=f7c043fd8433f9be9a8c98ad19fac2b5334031fbcabf183b-12718991-images-thumbs&n=13" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://avatars.mds.yandex.net/i?id=177a0beb9872ce93c7f4fef01e4a55d6d6c659f2-2431862-images-thumbs&n=13" alt="Slide 3">
+                    </div>
+                </div>
+                <button class="arrow prev">❮</button>
+                <button class="arrow next">❯</button>
+            </div>
+        
+            <script>
+                const slides = document.querySelector('.slides');
+                const slideItems = document.querySelectorAll('.slide');
+                const prevBtn = document.querySelector('.prev');
+                const nextBtn = document.querySelector('.next');
+                
+                let currentIndex = 0;
+                const totalSlides = slideItems.length;
+                
+                function updateSlide() {
+                    slides.style.transform = `translateX(-${currentIndex * 100}px)`;
+                }
+                
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+                    updateSlide();
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                    updateSlide();
+                });
+            </script>
+            
+            <div class="photo-item">
+                <p>«Водлинские камни»</p>
+                <p class="current-status">сейчас на сайте</p>
+            </div>
+        </div>
+    
+        <div class="online-users">
+            <p>Пользователей онлайн: 1</p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 60%;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Якутия</h3>
+                <ul>
+                    <li><a href="#">Про Затопления</a></li>
+                    <li><a href="#">Заинтересованные стороны</a></li>
+                    <li><a href="#">Позиции компании</a></li>
+                    <li><a href="#">Публикации про наводнения</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Карты</h3>
+                <ul>
+                    <li><a href="#">Наводнения Якутии</a></li>
+                    <li><a href="#">Карты по улусам</a></li>
+                    <li><a href="#">Инструкция по использованию карт</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Документы</h3>
+                <ul>
+                    <li><a href="#">Документы паводков</a></li>
+                    <li><a href="#">Документы прикольные</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Инструменты</h3>
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#">О</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>О сайте</h3>
+                <ul>
+                    <li><a href="#">О сайте</a></li>
+                    <li><a href="#">Новости сайта</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Опрос</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+         
+        </div>
+    </footer>
+
+
+
+
+
+
+
+</body>
