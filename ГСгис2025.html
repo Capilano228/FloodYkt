@@ -114,6 +114,7 @@
             transition: all 0.3s ease;
             margin: 5px 0;
             outline: none;
+            border-color: white;
         }
         
         .main-button:hover {
@@ -321,6 +322,9 @@
             border-radius: 3px;
             color:black;
         }
+        li:hover {
+            text-shadow: 0px 0px 10px #FF0000;
+        color: #777;}
 
 
 
@@ -382,18 +386,35 @@
 }
 
 
+
+
+
+
+/*баллеты*/
+li {color: #0485A2;}
+li span{
+
+    color: white;
+} 
+
+
         
         
     </style>
 </head>
 <body>
     <header>
-      <div class="image-block" style="background-image: url('i.webp'); " >
+      <div class="image-block" style="background-image: url('i.webp.jpg'); " >
         
           
         <h1 style="display: flex;">
          <div class="button-container" style="margin-left: 250px;">
-            <button class="main-button" id="mainButton">Затопление</button>
+            <button class="main-button" id="m1">Главная</button>
+            <script>
+                document.getElementById("m1").addEventListener("click", function() {
+                  window.location.href = "ГСгис2025.html";
+                });
+              </script>
             <div class="hidden-buttons" id="hiddenButtons">
               
                 <button class="main-button hidden-button">Информация</button>
@@ -429,7 +450,12 @@
             });
           </script>
           <div class="button-container" style="margin-left: 50px;">
-          <button class="main-button" id="mainButton">Документы</button>
+          <button class="main-button" id="кк">Концепсия</button>
+          <script>
+            document.getElementById("кк").addEventListener("click", function() {
+              window.location.href = "3strgis.html";
+            });
+          </script>
           <div class="hidden-buttons" id="hiddenButtons">
             
             <button class="main-button hidden-button">Кнопка 1</button>
@@ -440,7 +466,9 @@
           </div>
 
          <div class="button-container" style="margin-left: 50px;">
-            <button class="main-button" id="mainButton">Инструменты</button>
+            <form action="https://qgis.org/" style="margin-top: -8px;">
+            <button class="main-button" id="mainButton" href="https://qgis.org/">Инструменты</button>
+        </form>
             <div class="hidden-buttons" id="hiddenButtons">
                 
                 <button class="main-button hidden-button">Кнопка 1</button>
@@ -450,7 +478,12 @@
             </div>
           </div>
            <div class="button-container" style="margin-left: 50px;">
-            <button class="main-button" id="mainButton">О сайте</button>
+            <button class="main-button" id="к1к">О сайте</button>
+            <script>
+                document.getElementById("к1к").addEventListener("click", function() {
+                  window.location.href = "4strkarta.html";
+                });
+              </script>
             <div class="hidden-buttons" id="hiddenButtons">
                
                 <button class="main-button hidden-button">Кнопка 1</button>
@@ -533,7 +566,7 @@
 
         </div>
         <h1 style="text-align: center;font-size: 40px;color:white">Сайт посвящён картам<br>
-            затопления на территории Якутии </h1>
+            затопления на территории Орска </h1>
             <p style="text-align: center;font-size: 25px;">Здесь вы найдёте: актуальные данные о затоплении, его прогнозы</p>
             <p style="text-align: center;font-size: 25px;margin-top: -30px;">методики обеспечения безопасности,</p>
             <p style="text-align: center;font-size: 25px;margin-top: -30px;"> а также обсуждение вопросов, связанных с затоплением</p>
@@ -573,39 +606,23 @@
 
 
 
-    <div style="text-align: center;font-size: 40px;margin-top: 100px;">Информация по улусам</div>
-    <div style="text-align: center;font-size: 20px;">(Отображаются только те улусы , где могут быть наводнения)</div>
+    <div style="text-align: center;font-size: 40px;margin-top: 100px;">Информация по годам</div>
+    <div style="text-align: center;font-size: 20px;">(Отображаются только те года, по которым имеются данные)</div>
     <div class="lvpc-container" style="margin-left: 20%;margin-top: 100px;">
         <div class="section-title" onclick="toggleSection('regions')">
-            Географические группы
+         Года(2020-2025)
             <span class="arrow">▼</span>
         </div>
-        <div class="section-subtitle">(улусы, которые находятся в определенной части Якутии)</div>
+        <div class="section-subtitle"></div>
         
         <ul id="regions" class="region-list" style="list-style-type: none;">
-            <li onclick="selectRegion(this)" style="list-style-type: none;">   Алданский улус</li>
-            <li onclick="selectRegion(this)">   Усть-Алданский улус</li>
-            <li onclick="selectRegion(this)">Томпонский</li>
-            <li onclick="selectRegion(this)">Усть-Майский улус</li>
-            <li onclick="selectRegion(this)">Верхнеколымский улус</li>
-            <li onclick="selectRegion(this)">Средне колымский улус</li>
-            <li onclick="selectRegion(this)">Нижнеколымский улус </li>
-            <li onclick="selectRegion(this)">Ленский улус</li>
-            <li onclick="selectRegion(this)">намский улус</li>
-            <li onclick="selectRegion(this)">Олекминский улус</li>
-            <li onclick="selectRegion(this)">Хангаласский улус</li>
-            <li onclick="selectRegion(this)">Кобяйский улус</li>
-            <li onclick="selectRegion(this)">Верхоянский улус</li>
-            <li onclick="selectRegion(this)">Амгинский улус</li>
-            <li onclick="selectRegion(this)">Оймяконский улус</li>
-            <li onclick="selectRegion(this)">Мегино-Хангаласский улус</li>
-            <li onclick="selectRegion(this)">г. Якутск</li>
-            <li onclick="selectRegion(this)">таттинский улус</li>
-            <li onclick="selectRegion(this)">Чурапчинский улус</li>
-            <li onclick="selectRegion(this)">Усть-Янский улус</li>
-            <li onclick="selectRegion(this)">Момский улус</li>
-            <li onclick="selectRegion(this)">Абыйский улус</li>
-            <li onclick="selectRegion(this)">Горный улус</li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2020 год</span></li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2021 год</span></li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2022 год</span></li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2023 год</span></li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2024 год</span></li>
+            <li onclick="selectRegion(this)" style="list-style-type: none; "><span> 2025 год</span></li>
+         
 
         </ul>
         

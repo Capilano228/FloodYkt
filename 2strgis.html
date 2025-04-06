@@ -98,6 +98,7 @@ box-sizing: border-box;
     transition: all 0.3s ease;
     margin: 5px 0;
     outline: none;
+    border-color: white;
 }
 
 .main-button:hover {
@@ -259,6 +260,44 @@ box-sizing: border-box;
             font-size: 16px;
             transition: background-color 0.3s;
         }
+         
+        .dropdown-btn5 {
+            background-color: #0485A2; 
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-btn6 {
+            background-color: #0485A2; 
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .dropdown-btn7 {
+            background-color: #0485A2; 
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
         
         
         .dropdown-btn:hover {
@@ -327,10 +366,10 @@ box-sizing: border-box;
     margin: 20px;
     padding: 15px;
     background-color: #0485A2;
-    border-radius: 5px;
+    border-radius: 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 1150px;
-    margin-top: -200px;
+    margin-left: 1220px;
+    margin-top: -400px;
 }
 
 .regional-section h3 {
@@ -500,12 +539,17 @@ footer {
 
 <body>
     <header>
-     <div class="image-block" style="background-image: url('уу.jpg'); " >
+     <div class="image-block" style="background-image: url('i.webp.jpg'); " >
       
         
          <h1 style="display: flex;">
        <div class="button-container" style="margin-left: 250px;">
-          <button class="main-button" id="mainButton">Затопление</button>
+          <button class="main-button" id="m1">Главная</button>
+          <script>
+            document.getElementById("m1").addEventListener("click", function() {
+              window.location.href = "ГСгис2025.html";
+            });
+            </script>
           <div class="hidden-buttons" id="hiddenButtons">
             
               <button class="main-button hidden-button">Кнопка 1</button>
@@ -540,7 +584,12 @@ footer {
           });
         </script>
         <div class="button-container" style="margin-left: 50px;">
-        <button class="main-button" id="mainButton">Документы</button>
+        <button class="main-button" id="кв">Концепсия</button>
+        <script>
+            document.getElementById("кв").addEventListener("click", function() {
+              window.location.href = "3strgis.html";
+            });
+          </script>
         <div class="hidden-buttons" id="hiddenButtons">
           
           <button class="main-button hidden-button">Кнопка 1</button>
@@ -551,7 +600,9 @@ footer {
         </div>
 
        <div class="button-container" style="margin-left: 50px;">
-          <button class="main-button" id="mainButton">Инструменты</button>
+        <form action="https://qgis.org/" style="margin-top: 0px;">
+            <button class="main-button" id="mainButton" href="https://qgis.org/">Инструменты</button>
+        </form>
           <div class="hidden-buttons" id="hiddenButtons">
              
               <button class="main-button hidden-button">Кнопка 1</button>
@@ -561,7 +612,12 @@ footer {
           </div>
         </div>
          <div class="button-container" style="margin-left: 50px;">
-          <button class="main-button" id="mainButton">О сайте</button>
+          <button class="main-button" id="кк4">О сайте</button>
+          <script>
+            document.getElementById("кк4").addEventListener("click", function() {
+              window.location.href = "4strkarta.html";
+            });
+          </script>
           <div class="hidden-buttons" id="hiddenButtons">
              
               <button class="main-button hidden-button">Кнопка 1</button>
@@ -575,7 +631,12 @@ footer {
 
 
        <div class="button-container" style="margin-left: 50px;">
-          <button class="main-button" id="mainButton">Карты</button>
+          <button class="main-button" id="квк">Карты</button>
+          <script>
+            document.getElementById("квк").addEventListener("click", function() {
+              window.location.href = "2strgis.html";
+            });
+          </script>
           <div class="hidden-buttons" id="hiddenButtons">
             
               <button class="main-button hidden-button">Кнопка 1</button>
@@ -585,7 +646,7 @@ footer {
           </div>
          
       </h1>
-      <hr style="margin-left: 250px;margin-top: -35px;">
+      <hr style="margin-left: 250px;margin-top: -70px;">
       
       
       
@@ -643,21 +704,18 @@ footer {
       </div>
       <div style="font-size: 46px;text-align: center;">Карты</div>
     </header>
-    <section style="margin-left: 20%;font-size: 20px; margin-top: 100px; ">*Ниже приведены карты улусов, по которым имеются данные</section>
+    <section style="margin-left: 20%;font-size: 20px; margin-top: 100px; ">*Ниже приведены карты по годам, по которым имеются данные</section>
     <section  style="margin-left: 20%;display: flex;">
 
 
 
      <div><div class="dropdown-container">
-        <button class="dropdown-btn">Северо-Восточная группа</button>
+        <button class="dropdown-btn">2020 год</button>
         <div class="dropdown-content">
             <ul>
-                <li><a href="#">Колымский улус</a></li>
-                <li><a href="#">Верхоянский улус</a></li>
-                <li><a href="#">Усть-Янский улус</a></li>
-                <li><a href="#">Аллаиховский улус</a></li>
-                <li><a href="#">Абыйский улус</a></li>
-                <li><a href="#">Оймяконский улус</a></li>
+                <li><a href="#"> Карта затопленные здания</a></li>
+                <li><a href="url('karta23.html')">Карта Затопленные дороги</a></li>
+                <li><a href="#">Карта Затопленные общие территории</a></li>
                
             </ul>
         </div>
@@ -676,18 +734,13 @@ footer {
 
     
      <div class="dropdown-container" id="">
-        <button class="dropdown-btn1">Центральная группа</button>
+        <button class="dropdown-btn1">2021 год</button>
         <div class="dropdown-content">
             <ul>
-                <li><a href="#">Горный улус</a></li>
-                <li><a href="#">Амгинский улус</a></li>
-                <li><a href="#">Мегино-Хангаласский улус</a></li>
-                <li><a href="#">Намский улус</a></li>
-                <li><a href="#">Усть-Майский улус</a></li>
-                <li><a href="#">Усть-Алданский улус</a></li>
-                <li><a href="#">таттинский улус</a></li>
-                <li><a href="#"> Хангаласский улус </a></li>
-                <li><a href="#"> Томпонский улус </a></li>
+                <li><a href="#"> Карта затопленные здания</a></li>
+                <li><a href="#">Карта Затопленные дороги</a></li>
+                <li><a href="#">Карта Затопленные общие территории</a></li>
+               
             </ul>
         </div>
      </div>
@@ -704,12 +757,12 @@ footer {
 
 
      <div class="dropdown-container">
-        <button class="dropdown-btn2">Северо-Западная группа</button>
+        <button class="dropdown-btn2">2022 год</button>
         <div class="dropdown-content">
             <ul>
-                <li><a href="#">Анабарский улус</a></li>
-                <li><a href="#">Оленекский улус</a></li>
-                <li><a href="#">Булунский улус</a></li>
+                <li><a href="#"> Карта затопленные здания</a></li>
+                <li><a href="#">Карта Затопленные дороги</a></li>
+                <li><a href="#">Карта Затопленные общие территории</a></li>
                 
             </ul>
         </div>
@@ -722,16 +775,96 @@ footer {
             const dropdownContent = this.nextElementSibling;
             dropdownContent.classList.toggle('show');
         });
-     </script></div>
+     </script>
+
+<div class="dropdown-container">
+    <button class="dropdown-btn5">2023 год</button>
+    <div class="dropdown-content">
+        <ul>
+            <li><a href="#"> Карта затопленные здания</a></li>
+            <li><a href="#">Карта Затопленные дороги</a></li>
+            <li><a href="#">Карта Затопленные общие территории</a></li>
+            
+        </ul>
+    </div>
+ </div>
+
+
+ <script>
+    document.querySelector('.dropdown-btn5').addEventListener('click', function() {
+        this.classList.toggle('active');
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('show');
+    });
+ </script>
+
+
+
+
+<div class="dropdown-container">
+    <button class="dropdown-btn6">2024 год</button>
+    <div class="dropdown-content">
+        <ul>
+            <li><a href="#"> Карта затопленные здания</a></li>
+            <li><a href="#">Карта Затопленные дороги</a></li>
+            <li><a href="#">Карта Затопленные общие территории</a></li>
+            
+        </ul>
+    </div>
+ </div>
+
+
+ <script>
+    document.querySelector('.dropdown-btn6').addEventListener('click', function() {
+        this.classList.toggle('active');
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('show');
+    });
+ </script>
+
+
+
+
+<div class="dropdown-container">
+    <button class="dropdown-btn7">2025 год</button>
+    <div class="dropdown-content">
+        <ul>
+            <li><a href="#"> Карта затопленные здания</a></li>
+            <li><a href="#">Карта Затопленные дороги</a></li>
+            <li><a href="#">Карта Затопленные общие территории</a></li>
+            
+        </ul>
+    </div>
+ </div>
+
+
+ <script>
+    document.querySelector('.dropdown-btn7').addEventListener('click', function() {
+        this.classList.toggle('active');
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('show');
+    });
+ </script>
+     
+    
+    
+    
+    
+    
+    
+    </div>
      </section>
 
 
      <div class="regional-section" >
-        <h3>Географические разделы</h3>
+        <h3>Карты по годам</h3>
         <ul class="region-list">
-            <li><a href="#">Северо-Восточная группа</a></li>
-            <li><a href="#">Северо-Западная группа</a></li>
-            <li><a href="#">Центральная группа</a></li>
+            <li><a href="#">2020 год</a></li>
+            <li><a href="#">2021 год </a></li>
+            <li><a href="#">2022 год</a></li>
+            <li><a href="#">2023 год</a></li>
+            <li><a href="#">2024 год</a></li>
+            <li><a href="#">2025 год</a></li>
             
         </ul>
     

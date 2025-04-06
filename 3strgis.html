@@ -97,6 +97,7 @@ box-sizing: border-box;
     transition: all 0.3s ease;
     margin: 5px 0;
     outline: none;
+    border-color: white;
 }
 
 .main-button:hover {
@@ -222,7 +223,7 @@ box-sizing: border-box;
     background-color: #0485A2;
     border-radius: 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 1150px;
+    margin-left: 1220px;
     margin-top: -200px;
 }
 
@@ -395,12 +396,16 @@ box-sizing: border-box;
 
 
 <body><header>
-    <div class="image-block" style="background-image: url('уу.jpg'); " >
+    <div class="image-block" style="background-image: url('i.webp.jpg'); " >
      
        
         <h1 style="display: flex;">
       <div class="button-container" style="margin-left: 250px;">
-         <button class="main-button" id="mainButton">наводнение</button>
+         <button class="main-button" id="m1">Главная</button>
+         <script>
+            document.getElementById("m1").addEventListener("click", function() {
+              window.location.href = "ГСгис2025.html";
+            });</script>
          <div class="hidden-buttons" id="hiddenButtons">
            
              <button class="main-button hidden-button">Кнопка 1</button>
@@ -435,7 +440,7 @@ box-sizing: border-box;
          });
        </script>
        <div class="button-container" style="margin-left: 50px;">
-       <button class="main-button" id="mainButton">Документы</button>
+       <button class="main-button" id="mainButton">Концепсия</button>
        <div class="hidden-buttons" id="hiddenButtons">
          
          <button class="main-button hidden-button">Кнопка 1</button>
@@ -446,7 +451,9 @@ box-sizing: border-box;
        </div>
 
       <div class="button-container" style="margin-left: 50px;">
-         <button class="main-button" id="mainButton">Инструменты</button>
+        <form action="https://qgis.org/" style="margin-top: 0px;">
+            <button class="main-button" id="mainButton" href="https://qgis.org/">Инструменты</button>
+        </form>
          <div class="hidden-buttons" id="hiddenButtons">
             
              <button class="main-button hidden-button">Кнопка 1</button>
@@ -456,7 +463,12 @@ box-sizing: border-box;
          </div>
        </div>
         <div class="button-container" style="margin-left: 50px;">
-         <button class="main-button" id="mainButton">О сайте</button>
+         <button class="main-button" id="кк5">О сайте</button>
+         <script>
+            document.getElementById("кк5").addEventListener("click", function() {
+              window.location.href = "4strkarta.html";
+            });
+          </script>
          <div class="hidden-buttons" id="hiddenButtons">
             
              <button class="main-button hidden-button">Кнопка 1</button>
@@ -485,7 +497,7 @@ box-sizing: border-box;
          </div>
         
      </h1>
-     <hr style="margin-left: 250px;margin-top: -35px;">
+     <hr style="margin-left: 250px;margin-top: -70px;">
      
      
      
